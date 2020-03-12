@@ -90,8 +90,8 @@ final class SiteMap{
         
 
         'faq' => array(
-                'hide_in_navbar' => true,
-                'name' => 'Faq',
+            'hide_in_navbar' => true,
+            'name' => 'Faq',
         ),
 
         
@@ -206,7 +206,7 @@ final class SiteMap{
         
         
          'faq' => array(
-            'idezx' => self::faq_idx,
+            'idx' => self::faq_idx,
             'rewrited_url' => '/faq',
             'name' => 'FAQ',
             'show_in_footer_links?' => true,

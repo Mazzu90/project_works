@@ -1,0 +1,9 @@
+/**
+ * Masthead
+ * -------------------------------------------------------------------------- */
+.masthead {
+    position: relative;
+}
+.masthead-video {
+    z-index: 0;
+}

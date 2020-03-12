@@ -1,0 +1,1261 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* CUSTOM CSS (ADD YOUR CSS HERE!) */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+#elencoauto {
+	margin-top: -20px;
+}
+
+/*BOX TELEFONO E INDIRIZZO MENU SOLO MOBILE*/
+
+.nav_mobile_box {
+	text-align: left;
+	padding: 13px 0px 0px 20px;
+}
+
+.nav_mobile_box i{
+	float: left;
+	height: 50px;
+	margin-right: 13px;
+	margin-top: 5px;
+}
+
+.nav_mobile_box i.map{
+	float: left;
+	height: 50px;
+	color: #b32e6e;
+	margin-right: 20px;
+	margin-top: 0px;
+}
+
+.nav_mobile_box span{
+	letter-spacing: 1px;
+	font-size: 17px;
+}
+
+.nav_mobile_box p.tel{
+	font-size: 29px;
+	margin-top: -10px;
+}
+
+.nav_mobile_box.privacy {
+	top: 235px;
+}
+
+.nav_mobile_box.tel {
+	width: 100%;
+	top: 280px;
+}
+
+.nav_mobile_box.map {
+	width: 100%;
+	top: 360px;
+}
+
+
+/*RICERCA HOMEPAGE CUSTOM CON DIV E JQUERY*/
+
+.b-search-item-custom {
+	position: relative;
+	width: 100%;
+	height: 65px;
+	margin: 0px 0px 30px 0px;
+	border: 1px solid #FFF;
+	background-color: rgba(14, 37, 64, 0.2);
+	font:23px 'din_alternatebold',sans-serif;	
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.b-search-item-custom:hover {
+	cursor: pointer;
+}
+
+.b-search-item-custom.active {
+	background: linear-gradient(to right, #e43562 , #662480);
+}
+
+/* CAPTION SU HOVER CON BOX A COMPARSA CON TRASLAZIONE (Homepage tipologie auto)*/
+
+.caption1 {
+	overflow: hidden;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.caption1::before {
+	position: absolute;
+	content: '';
+	top: 0%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: linear-gradient(to right, #e43562 , #662480);
+	
+	-webkit-transition: -webkit-transform 0.3s ease-in-out; 
+	-moz-transition: -moz-transform 0.3s ease-in-out; 
+	transition: transform 0.3s ease-in-out;
+	
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+.caption1:hover::before {
+	cursor: pointer;
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+.b-search-value {
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+}
+
+.b-search-item-custom-value {
+	float: left;
+	width: 49%;
+}
+
+.b-search-item-custom-value2 {
+	float: left;
+	width: 100%;
+}
+
+.b-search-item-custom-value span, .b-search-item-custom-value2 span {
+	font-size: 10px;
+	text-align: left;
+}
+
+.b-search-item-custom-value sup, .b-search-item-custom-value2 sup {
+	font-size: 14px;
+}
+
+.b-search-item-custom-divider {
+	float: left;
+	margin-top: 5px;
+	width: 1px;
+	height: 48px;
+	border-left: 1px solid #FFF;
+}
+
+/*BOX ICONE AUTO*/
+
+.b-count__item_custom{
+	position: relative;
+	width: 100%;
+	padding-bottom: 20px;
+	margin: 0px 0px 40px 0px;
+	z-index: 101;
+}
+
+.b-count__item_custom:hover {
+	cursor: pointer;
+}
+
+.b-count__item_custom h2{
+	padding: 0px 20px;
+}
+
+.b-count__item_custom i{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.b-count__item_custom h2 span{
+	color:#fff;
+}
+
+/* CAPTION SU HOVER CON BOX A COMPARSA CON TRASLAZIONE X ICONE AUTO*/
+
+.caption2 {
+	overflow: hidden;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.caption2::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(135, 208, 239, 0.7);
+	
+	-webkit-transition: -webkit-transform 0.3s ease-in-out; 
+	-moz-transition: -moz-transform 0.3s ease-in-out; 
+	transition: transform 0.3s ease-in-out;
+	
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+.caption2:hover::before {
+	cursor: pointer;
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+/*STILI IMMAGINI DI SEZIONE*/
+
+.chisiamo_img {
+	width: 50%;
+	float: right;
+}
+
+.servizi_img {
+	width: 40%;
+	float: right;
+}
+
+.officina_img {
+	width: 40%;
+	float: right;
+}
+
+.compriamo_img {
+	width: 40%;
+	float: right;
+}
+
+.faq_img {
+	width: 70%;
+	float: right;
+}
+
+.valutazione_img {
+	width: 50%;
+	float: right;
+}
+
+.lavoraconnoi_img {
+	width: 50%;
+	float: right;
+}
+
+ /*CHECK FILTRI RICERCA AUTO Customize the label (the container) */
+.check_filter {
+  display: block;
+  position: relative;
+  padding: 10px 0px 5px 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.check_filter.default {
+	background: #e7e8ec;
+}
+
+.check_filter.light_blue1 {
+	background: #ecf5fc;
+}
+.check_filter.light_blue2 {
+	background: #d9ebf9;
+}
+.check_filter.light_blue3 {
+	background: #c7e2f5;
+}
+.check_filter.green {
+	background: #93c01f;
+}
+
+.check_filter.green p {
+	color: #FFF;
+}
+
+.check_filter p {
+	padding-top: 5px;
+	font-size: 14px;
+}
+
+/* Hide the browser's default checkbox */
+.check_filter input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark_filter {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #FFF;
+}
+
+/* On mouse-over, add a grey background color */
+.check_filter:hover input ~ .checkmark_filter  {
+  background-color: #87d0ef;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check_filter input:checked ~ .checkmark_filter {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_filter:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check_filter input:checked ~ .checkmark_filter:after  {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check_filter .checkmark_filter:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*CHECK PRIVACY Customize the label (the container) */
+.check_privacy {
+  display: block;
+  position: relative;
+  padding: 0px 0px 5px 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.check_privacy.dark p {
+	color: #000;
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 1.1;
+	margin-bottom: 10px !important;
+}
+
+.check_privacy.lightblue p {
+	color: #FFF;
+	font-size: 11px;
+	font-weight: 200;
+	line-height: 1.1;
+}
+
+/* Hide the browser's default checkbox */
+.check_privacy input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.check_privacy:hover input ~ .checkmark  {
+  background-color: #ddd;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check_privacy input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check_privacy input:checked ~ .checkmark:after  {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check_privacy .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} 
+
+/*STILI SOVRASCRITTI*/
+
+.b-items__aside-main-footer {
+	padding-top:0px;
+	background:#fff !important;
+}
+
+.b-items__aside-main-home-search {
+	padding-top:0px;
+	background-color: transparent !important;
+	text-align: center;
+}
+
+.b-items__cars-one-info{
+	background-color: #FFF;
+	padding:8px;
+}
+
+.b-items__cars-one-info-details .details {
+	color:#000;
+	text-decoration:none;
+	}
+
+
+select.m-select.filter {
+    padding: 12px 10px;
+    border: 1px solid #fff;
+    border-radius: 0px;
+    font:14px 'din_alternatebold',sans-serif;
+	color:#FFF;
+	text-transform:uppercase;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none !important;
+	background-color: rgba(14, 37, 64, 0.1);
+}
+
+select.m-select.filter:hover {
+    cursor: pointer;
+	background-color: #d9dadd
+}
+
+select.m-select.filter.light {
+	color:#FFF !important;
+}
+
+select.m-select.filter.dark {
+	color:#666 !important;
+}
+
+select.m-select.filter:focus {
+	outline: none;
+}
+
+select.m-select + span.fa {
+    top: -5px;
+    right: 17px;
+    position: absolute;
+	color:#FFF !important;
+}
+
+a.reset {
+	color:#333 !important;
+}
+
+.b-pageHeader.esposizione{
+	height:450px;
+    background: url(../images/esposizione.jpg) center center no-repeat !important;
+	background-size:cover !important;
+}
+
+.b-items__aside-main-footer {
+    text-transform: uppercase;
+    font:17px 'din_alternatebold',sans-serif;
+    text-decoration: none;
+}
+
+.b-items__aside-main-footer > a {
+    text-transform: uppercase;
+    font:14px 'din_alternatebold',sans-serif;
+    text-decoration: none;
+}
+
+.b-items__aside h2.icon-filter-arrowdown {
+	padding:14px;
+	background:url(../images/icon-filter-arrowdown.png) center no-repeat;
+	}
+
+.b-items__aside-main-footer span.icon-plus, .b-items__cars-one-info-details span.icon-plus {
+	padding:24px 0px 24px 35px;
+	background:url(../images/icon-plus.png) center no-repeat;
+	}
+
+.b-items__aside-main-footer span.icon-aperta-quadra {
+	padding:9px 20px 9px 9px;
+	background:url(../images/icon-aperta-quadra.png) center no-repeat;
+	}
+
+.b-items__aside-main-footer span.icon-chiusa-quadra {
+	padding:9px 0px 9px 20px;
+	background:url(../images/icon-chiusa-quadra.png) center no-repeat;
+	}
+
+.b-detail__main {
+	padding:130px 0px 80px 0px;
+	}
+
+#google-map {
+	width:100%;
+	height:595px;
+	}
+
+.language {
+	color: #FFF;
+}
+
+.print {
+	float: right;
+	margin-bottom: 5px;
+}
+
+.close-sheet {
+	float: right;
+	margin-left: 30px;
+}
+
+.plate {
+	position: absolute;
+	top: 26px;
+	right: 15px;
+	z-index: 10;
+}
+
+.plate span{
+	color:#999;
+}
+
+.icon-carinfo {
+	height: 25px;
+	margin-bottom: 19px;
+	padding-top:6px;
+	padding-left:40px;
+	background:url(../images/icon-carinfo.png) center no-repeat;
+	}
+	
+	.icon-carinfo.km {background-position:0px -2px; }
+	.icon-carinfo.data { background-position:0px -47px;}
+	.icon-carinfo.alimentazione { background-position:0px -88px;}
+	.icon-carinfo.potenza { background-position:0px -133px;}
+	.icon-carinfo.cambio { background-position:0px -181px;}
+	.icon-carinfo.colore { background-position:0px -223px;}
+	.icon-carinfo.interni { background-position:0px -269px;}
+
+.icon-carinfo2 {
+	height:48px;
+	padding-top:12px;
+	padding-left:68px;
+	background:url(../images/icon-carinfo2.png) center no-repeat;
+	}
+	
+	.icon-carinfo2.km { background-position:0px 0px; }
+	.icon-carinfo2.data { background-position:0px -77px;}
+	.icon-carinfo2.alimentazione { background-position:0px -148px;}
+	.icon-carinfo2.potenza { background-position:0px -225px;}
+	.icon-carinfo2.cambio { background-position:0px -305px;}
+	.icon-carinfo2.colore { background-position:0px -378px;}
+	.icon-carinfo2.interni { background-position:0px -455px;}
+
+.icon-testdrive {
+	height:67px;
+	padding-top:23px;
+	padding-left:90px;
+	background:url(../images/icon-testdrive.png) left no-repeat;
+	}
+	
+.privacy { font-size:11px !important;}
+
+.tagliandi{ color:#4d4d4d;}
+
+footer { background-color:#404041 !important;}
+
+footer a { color:#FFF !important; font-size: 13px; }
+footer p { color:#FFF !important; font-size: 13px;}
+footer h4 a { color:#FFF !important; font-size: 20px; }
+
+footer h4 a:hover { text-decoration:none;}
+
+.b-footer__company dd{
+	font-size:18px;
+}
+
+.b-footer__company .icon-mail{
+	padding-top:50px;
+	padding-left:0px;
+	background:url(../images/icon-mail.png) left no-repeat;
+}
+
+.b-footer__company .icon-clock{
+	padding-top:50px;
+	padding-left:0px;
+	background:url(../images/icon-clock.png) left no-repeat;
+}
+
+.b-footer__content-social img { margin-right:15px;}
+
+.noborder {
+    border: none !important;
+}
+
+.ohidden {
+    position: relative;
+    overflow: hidden !important;
+}
+	
+.img-responsive {width:100%;}
+
+.width-responsive {width:100% !important;}
+
+.b-top { border-top:1px #ccc solid;}
+.b-left { border-left:1px #ccc solid;}
+.b-right { border-right:1px #ccc solid;}
+.b-bottom { border-bottom:1px #ccc solid;}
+
+
+.img-responsive {
+	width: 100%;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 10px;
+}
+
+/* Text-Align */
+
+.justify {text-align:justify !important;}
+.center {text-align:center !important;}
+.t-left {text-align:left !important;}
+.t-right {text-align:right !important;}
+
+
+/* Floating */
+.f-left { float:left !important;}
+.f-right { float:right !important;}
+
+
+/* Spacements */
+/* spacement top & bottom */
+.m-none {
+	margin: 0 !important;
+}
+
+.m-auto {
+	margin: 0 auto !important;
+}
+
+.m-xs {
+	margin: 5px !important;
+}
+
+.m-sm {
+	margin: 10px !important;
+}
+
+.m-md {
+	margin: 15px !important;
+}
+
+.m-lg {
+	margin: 20px !important;
+}
+
+.m-xl {
+	margin: 25px !important;
+}
+
+.m-xlg {
+	margin: 30px !important;
+}
+
+/* spacement top	*/
+.mt-none {
+	margin-top: 0 !important;
+}
+
+.mt-xs {
+	margin-top: 5px !important;
+}
+
+.mt-sm {
+	margin-top: 10px !important;
+}
+
+.mt-md {
+	margin-top: 15px !important;
+}
+
+.mt-lg {
+	margin-top: 20px !important;
+}
+
+.mt-xl {
+	margin-top: 25px !important;
+}
+
+.mt-xlg {
+	margin-top: 30px !important;
+}
+
+.mt-xlgg {
+	margin-top: 40px !important;
+}
+
+.mt-elenco-auto {
+	margin-top: 20px !important;
+}
+/* spacement bottom	*/
+.mb-none {
+	margin-bottom: 0 !important;
+}
+
+.mb-xs {
+	margin-bottom: 5px !important;
+}
+
+.mb-sm {
+	margin-bottom: 10px !important;
+}
+
+.mb-md {
+	margin-bottom: 15px !important;
+}
+
+.mb-lg {
+	margin-bottom: 20px !important;
+}
+
+.mb-xl {
+	margin-bottom: 25px !important;
+}
+
+.mb-xxl {
+	margin-bottom: 30px !important;
+}
+
+.mb-xxxl {
+	margin-bottom: 40px !important;
+}
+
+.mb-xxxxl {
+	margin-bottom: 50px !important;
+}
+
+.mb-elenco-auto {
+	margin-bottom: 12px !important;
+}
+/* spacement left	*/
+.ml-none {
+	margin-left: 0 !important;
+}
+
+.ml-xs {
+	margin-left: 5px !important;
+}
+
+.ml-sm {
+	margin-left: 10px !important;
+}
+
+.ml-md {
+	margin-left: 15px !important;
+}
+
+.ml-lg {
+	margin-left: 20px !important;
+}
+
+.ml-xl {
+	margin-left: 25px !important;
+}
+
+.ml-xlg {
+	margin-left: 30px !important;
+}
+
+.ml-xlgg {
+	margin-left: 35px !important;
+}
+
+.ml-xlggg {
+	margin-left: 45px !important;
+}
+
+.ml-xlgggg {
+	margin-left: 55px !important;
+}
+
+/* spacement right	*/
+.mr-none {
+	margin-right: 0 !important;
+}
+
+.mr-xs {
+	margin-right: 5px !important;
+}
+
+.mr-sm {
+	margin-right: 10px !important;
+}
+
+.mr-md {
+	margin-right: 15px !important;
+}
+
+.mr-lg {
+	margin-right: 20px !important;
+}
+
+.mr-xl {
+	margin-right: 25px !important;
+}
+
+.mr-xlg {
+	margin-right: 30px !important;
+}
+
+/* Spacement Padding */
+.p-none {
+	padding: 0 !important;
+}
+
+.p-xs {
+	padding: 5px !important;
+}
+
+.p-sm {
+	padding: 10px !important;
+}
+
+.p-md {
+	padding: 15px !important;
+}
+
+.p-lg {
+	padding: 20px !important;
+}
+
+.p-xl {
+	padding: 25px !important;
+}
+
+.p-xlg {
+	padding: 30px !important;
+}
+
+/* spacement top	*/
+.pt-none {
+	padding-top: 0 !important;
+}
+
+.pt-xs {
+	padding-top: 5px !important;
+}
+
+.pt-sm {
+	padding-top: 10px !important;
+}
+
+.pt-md {
+	padding-top: 15px !important;
+}
+
+.pt-lg {
+	padding-top: 20px !important;
+}
+
+.pt-xl {
+	padding-top: 25px !important;
+}
+
+.pt-xxl {
+	padding-top: 30px !important;
+}
+
+.pt-xxxl {
+	padding-top: 40px !important;
+}
+
+.pt-xxxxl {
+	padding-top: 50px !important;
+}
+
+.pt-xxxxxl {
+	padding-top: 80px !important;
+}
+
+/* spacement bottom	*/
+.pb-none {
+	padding-bottom: 0 !important;
+}
+
+.pb-xs {
+	padding-bottom: 5px !important;
+}
+
+.pb-sm {
+	padding-bottom: 10px !important;
+}
+
+.pb-md {
+	padding-bottom: 15px !important;
+}
+
+.pb-lg {
+	padding-bottom: 20px !important;
+}
+
+.pb-xl {
+	padding-bottom: 25px !important;
+}
+
+.pb-xlg {
+	padding-bottom: 30px !important;
+}
+
+.pb-xxl {
+	padding-bottom: 40px !important;
+}
+
+/* spacement left	*/
+.pl-none {
+	padding-left: 0 !important;
+}
+
+.pl-xs {
+	padding-left: 5px !important;
+}
+
+.pl-sm {
+	padding-left: 10px !important;
+}
+
+.pl-md {
+	padding-left: 15px !important;
+}
+
+.pl-lg {
+	padding-left: 20px !important;
+}
+
+.pl-xl {
+	padding-left: 25px !important;
+}
+
+.pl-xlg {
+	padding-left: 30px !important;
+}
+
+/* spacement right	*/
+.pr-none {
+	padding-right: 0 !important;
+}
+
+.pr-xs {
+	padding-right: 5px !important;
+}
+
+.pr-sm {
+	padding-right: 10px !important;
+}
+
+.pr-md {
+	padding-right: 15px !important;
+}
+
+.pr-lg {
+	padding-right: 20px !important;
+}
+
+.pr-xl {
+	padding-right: 25px !important;
+}
+
+.pr-xlg {
+	padding-right: 30px !important;
+}
+
+.optional, .dettagli{
+	margin: 0px 10px;
+	padding: 0px 20px;
+    width: 48%; 
+    float: left;
+	padding-bottom: 10px;
+    margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.dettagliTitolo{
+	float: left;
+    color: #999;
+}
+
+.dettaglio{
+	float: right;
+	text-align: right;
+}
+
+.b-footer__company p .current {
+   color: #90278c !important;
+}
+
+.p-fix { position:fixed;}
+
+/************* COOKIE LAW ************/
+/* CSS Document */
+#eucookielaw { 
+        background-color: #000;
+        border-top: 1px solid #a7a7a7;
+        bottom: 0;
+        color: #fff;
+        padding: 5px;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 999999999;
+        font-size: 14px;
+        opacity: 0.85;
+}
+#eucookielaw a{ 
+        color: #eee;
+        text-decoration: underline;
+        cursor:pointer;
+        
+       }
+#eucookielaw p{ 
+        margin:5px;
+       }
+       
+       /*SLIDER*/
+.imgSlider{
+    width: 40%;
+}
+/****/
+.carousel-indicators li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    background: url(../images/dot2.png) center center no-repeat !important;
+      
+}
+.carousel-indicators .active {
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    background: url(../images/dot1.png) center center no-repeat !important;
+    border: none;
+    
+}
+
+.b-search__main-type h4.mt5{
+   margin-top: 6px;
+}
+
+
+.galleria{
+    width: 100%;
+    min-height: 241px;
+}
+
+.blu{
+    color: #14304E;
+}
+
+
+.venduta{
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding: 0px 0px 0px 0px;
+    font: 400 25px;   
+    width: 100%;
+    height: 100%;
+    /*background: url(../images/venduta.png) top left no-repeat !important;*/
+    background-color: #fff;
+    opacity: 0.7;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.venduta:hover{
+    color:#000;
+    
+}
+
+.venduta span > span {
+    vertical-align: middle;  
+    display: table-cell; 
+}
+
+.venduta span > span > span.fa{
+    vertical-align: middle;
+    height: 100%;
+    
+}
+.venduta > span {
+    width: 100%;
+    height: 100%;
+    display: table;
+   
+}
+
+.venduta,.venduta:hover,.venduta:visited,.venduta:active,.venduta:focus{
+    text-decoration: none;
+}
+
+.vendutaLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 1000;
+    background: url(../images/venduta.png) top left no-repeat !important;
+}
+
+.etichettaCorner{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20%;
+    height: 20%;
+    z-index: 900;
+}
+
+.dieselLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/diesel100.png) top left no-repeat !important;
+}
+
+.metanoLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/metano100.png) top left no-repeat !important;
+}
+
+.elettricaLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/elettrica100.png) top left no-repeat !important;
+}
+
+.benzinaLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/benzina100.png) top left no-repeat !important;
+}
+
+.gplLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/gpl100.png) top left no-repeat !important;
+}
+
+.ibridaLogo{
+    font: 700 10px 'din_alternatebold',sans-serif;
+    padding: 5px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/ibrida100.png) top left no-repeat !important;
+}
+.neopatentatiLogo{
+    position: absolute;
+    top: 00px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: 900;
+    background: url(../images/neopatentati100.png) top left no-repeat !important;
+}
+	
+.realtaAutounica{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 50px;
+    height: 60px;
+    z-index: 900;
+    background: url(../images/icon-realtaautounica.png) top left no-repeat !important;
+}
+	
+.realtaAutounica_detail{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 50px;
+    height: 60px;
+    z-index: 900;
+    background: url(../images/icon-realtaautounica.png) top left no-repeat !important;
+}
+
+/*Multiuploader*/
+	
+#holder { border: 1px solid #ccc; width: auto; min-height: 300px; margin: 20px auto;}
+#holder.hover { border: 10px dashed #0c0; }
+#holder img {float: left; margin: 10px 10px 10px 10px;   }
+#holder p { margin: 10px; font-size: 14px; }
+progress { width: 100%; }
+progress:after { content: '%'; }
+.fail { background: #c00; padding: 2px; color: #fff; }
+.hidden { display: none !important;}

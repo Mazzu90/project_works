@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 200" style="enable-background:new 0 0 600 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#112E50;}
+	.st1{fill:url(#SVGID_1_);}
+</style>
+<g>
+	<path class="st0" d="M519.5,25.4c-41.2,0-74.6,33.4-74.6,74.6s33.4,74.6,74.6,74.6s74.6-33.4,74.6-74.6S560.6,25.4,519.5,25.4z
+		 M519.5,140.2c-22.2,0-40.2-18-40.2-40.2s18-40.2,40.2-40.2s40.2,18,40.2,40.2S541.7,140.2,519.5,140.2z"/>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="591.9774" y1="930.5687" x2="642.4492" y2="930.5687" gradientTransform="matrix(0.96 0.28 -0.28 0.96 187.4921 -966.1779)">
+		<stop  offset="0" style="stop-color:#E43562"/>
+		<stop  offset="1" style="stop-color:#662480"/>
+	</linearGradient>
+	<circle class="st1" cx="519.5" cy="100" r="25.2"/>
+</g>
+</svg>

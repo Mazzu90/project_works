@@ -1,0 +1,71 @@
+#tipologia di charset UTF8 per tutto il sito 
+AddDefaultCharset UTF-8
+#attivo il motore di riscrittura regole (obbligatorio)
+RewriteEngine on
+RewriteBase /
+ 
+
+RewriteRule auto-usate.html it/elenco_auto.php
+RewriteRule contatti.html it/contatti.php
+RewriteRule dove_siamo.html it/dove_siamo.php
+RewriteRule servizi.html it/servizi.php
+RewriteRule it/sitemap.xml it/site-map.php
+
+RewriteCond %{HTTP_HOST} !^simone.clickitsolutions\.it [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ http://simone.clickitsolutions.it/$1 [L,R=301]
+
+
+
+
+#regola pagina non trovata 404
+ErrorDocument 404 /it/404.php
+
+#regola accesso non consentito 403            
+ErrorDocument 403 /it/403.php
+
+
+
+
+
+#### REGOLA DI RISCRITTURA PER LE CATEGORIE ####
+# questa regola vuole 3 parametri:
+# parametro 1: indica la lingua ed è formato da 2 SOLE lettere minuscole: no numeri no simboli
+# parametro 2: valore specificato nel campo url della categoria e può essere formato da lettere (maiuscole e minuscole), numeri e simbolo meno ( - )
+# parametro 3: indica l'id della caregoria ed è formato solo da numeri.
+################################################
+#RewriteRule ^([a-z]{2})/([A-Za-z0-9\-]*)_([0-9]+).htm$                       $1/seo_gateway.php?lingua=$1&urlCA=$2&id=$3
+
+
+
+#### REGOLA DI RISCRITTURA PER I CONTENUTI ####
+# questa regola vuole 3 parametri:
+# parametro 1: indica la lingua ed è formato da 2 SOLE lettere minuscole: no numeri no simboli
+# parametro 2: valore specificato nel campo url della categoria padre (rif contenuto passato come id) e può essere formato da lettere (maiuscole e minuscole), numeri e simbolo meno ( - )
+# parametro 3: valore specificato nel campo url del contenuto (rif contenuto passato come id) e può essere formato da lettere (maiuscole e minuscole), numeri e simbolo meno ( - )
+# parametro 3: indica l'id del contenuto ed è formato solo da numeri.
+################################################
+#RewriteRule ^([a-z]{2})/([A-Za-z0-9\-]*)/([A-Za-z0-9\-]*)_([0-9]+).htm$      $1/seo_gateway.php?lingua=$1&urlCA=$2&urlCO=$3&id=$4
+
+
+
+#### REGOLA DI RISCRITTURA PER LE GALLERIE E LA STAMPA PDF ####
+# questa regola vuole 3 parametri:
+# parametro 1: indica la lingua ed è formato da 2 SOLE lettere minuscole: no numeri no simboli
+# parametro 2: valore specificato nel campo url della categoria padre (rif contenuto passato come id) e può essere formato da lettere (maiuscole e minuscole), numeri e simbolo meno ( - )
+# parametro 3: valore specificato nel campo url del contenuto (rif contenuto passato come id) e può essere formato da lettere (maiuscole e minuscole), numeri e simbolo meno ( - )
+# parametro 3: indica l'id del contenuto ed è formato solo da numeri.
+################################################
+#RewriteRule ^([a-z]{2})/galleria/([A-Za-z0-9\-]*)/([A-Za-z0-9\-]*)_([0-9]+).htm$        $1/seo_gateway2.php?lingua=$1&urlCA=$2&urlCO=$3&id=$4
+#RewriteRule ^([a-z]{2})/print/([A-Za-z0-9\-]*)/([A-Za-z0-9\-]*)_([0-9]+).htm$           $1/seo_gateway3.php?lingua=$1&urlCA=$2&urlCO=$3&id=$4
+#RewriteRule ^([a-z]{2})/([A-Za-z0-9\-]*)/([A-Za-z0-9\-]*)/                              $1/seo_gateway5.php?lingua=$1&urlCA=$2&urlCO=$3
+#RewriteRule ^([a-z]{2})/([A-Za-z0-9\-]*)/                                               $1/seo_gateway4.php?lingua=$1&urlCA=$2&urlCO=$3
+
+RewriteRule ^([A-Za-z0-9\-]*)$                                                     it/main.php?pg=$1
+
+
+
+
+
+
+

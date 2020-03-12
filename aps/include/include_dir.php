@@ -1,0 +1,4 @@
+<?
+$percorso='../';
+$percorsoAP='';
+?>

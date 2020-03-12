@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 200" style="enable-background:new 0 0 600 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:url(#XMLID_2_);}
+	.st2{display:inline;fill:none;stroke:#969696;stroke-width:3.4061;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:url(#SVGID_1_);}
+</style>
+<g class="st0">
+	
+		<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="5.7" y1="-617.15" x2="152.7" y2="-617.15" gradientTransform="matrix(1 0 0 -1 0 -495.2)">
+		<stop  offset="0" style="stop-color:#E43562"/>
+		<stop  offset="1" style="stop-color:#64257E"/>
+	</linearGradient>
+	<path id="XMLID_236_" class="st1" d="M42.2,173.4V70.5H5.7v102.7L42.2,173.4L42.2,173.4z M152.7,173.4v-33.1h-36.5v33.1H152.7z
+		 M98.8,173.4v-69.6H62.3v69.6H98.8z"/>
+	<line class="st2" x1="5.7" y1="25.4" x2="154.1" y2="123.1"/>
+	<path class="st2" d="M154.1,111.4"/>
+	<polyline class="st2" points="154.7,105.3 154.7,125.4 134.6,125.4 	"/>
+</g>
+<g>
+	<path class="st3" d="M99,5.3C46.7,5.3,4.3,47.7,4.3,100s42.4,94.7,94.7,94.7c52.3,0,94.7-42.4,94.7-94.7S151.3,5.3,99,5.3z
+		 M99,151.1c-28.2,0-51.1-22.9-51.1-51.1S70.8,48.9,99,48.9s51.1,22.9,51.1,51.1S127.2,151.1,99,151.1z"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="66.9512" y1="100" x2="131.0488" y2="100">
+		<stop  offset="0" style="stop-color:#E43562"/>
+		<stop  offset="1" style="stop-color:#662480"/>
+	</linearGradient>
+	<circle class="st4" cx="99" cy="100" r="32"/>
+</g>
+</svg>

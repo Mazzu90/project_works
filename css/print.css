@@ -1,0 +1,48 @@
+#headerMenu {
+    display: none;
+}
+
+.b-nav {
+    display: none;
+}
+
+
+.b-featured{
+    display: none;
+}
+.b-footer{
+    display: none;
+}
+
+.pagerVertical{
+    display: none;
+}
+.b-contacts__form{
+    display: none;
+}
+#visualizzaGallery{
+    display:none
+}
+#infoGenerali{
+    float: left;
+    width: 100%;
+    display: inline;
+}
+
+#immaginePrincipale{
+    width: 90%;
+    overflow: hidden;
+    float: left;
+    display: inline;
+}
+
+
+a:link:before{
+content: " [" attr(href) "]";
+display:none
+}
+a:link:after{
+content: " [" attr(href) "]";
+display:none
+}
+

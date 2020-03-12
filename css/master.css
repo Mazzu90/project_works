@@ -1,0 +1,36 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+- FONTS
+- MAIN CSS
+- PLUGIN CSS
+
+Author:     Andrey Sokoltsov
+Profile:    http://themeforest.net/user/andreysokoltsov
+-------------------------------------------------------------------*/
+
+
+
+/* MAIN CSS */
+@import url('bootstrap.css');
+@import url('font-awesome.css');
+@import url('simple-line-icons.css');
+@import url('fontello.css');
+@import url('theme.css');
+@import url('home.css');
+@import url('listings.css');
+@import url('detail.css');
+@import url('pages.css');
+@import url('submits.css');
+@import url('chosen.css');
+@import url('responsive.css');
+@import url('animate.css');
+@import url('site-colors.css');
+@import url('custom.css');
+
+
+/* PLUGIN CSS */
+@import url('/assets/owl-carousel/owl.carousel.css');
+@import url('/assets/owl-carousel/owl.theme.css');
+@import url('/assets/bxslider/jquery.bxslider.css');
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 200" style="enable-background:new 0 0 600 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#FFFFFF;stroke:#333333;stroke-width:0.8346;stroke-miterlimit:10;}
+	.st3{display:inline;fill:#FFFFFF;stroke:#333333;stroke-width:0.8346;stroke-miterlimit:10;}
+	.st4{display:inline;fill:none;stroke:#333333;stroke-width:0.6955;stroke-miterlimit:10;}
+	.st5{display:inline;fill:#FFFFFF;stroke:#333333;stroke-width:0.6955;stroke-miterlimit:10;}
+	.st6{display:inline;fill:#112E50;}
+	.st7{display:inline;fill:url(#SVGID_1_);}
+	.st8{display:inline;fill:#FFFFFF;}
+	.st9{display:inline;fill:#E3E3E3;}
+	.st10{fill:#FFFFFF;stroke:#333333;stroke-width:0.6581;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#333333;stroke-width:0.5484;stroke-miterlimit:10;}
+	.st12{fill:#FFFFFF;stroke:#333333;stroke-width:0.5484;stroke-miterlimit:10;}
+	.st13{fill:#C9C9C9;stroke:#333333;stroke-width:0.6581;stroke-miterlimit:10;}
+	.st14{fill:#C9C9C9;stroke:#333333;stroke-width:0.5484;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<g class="st0">
+	<g class="st1">
+		<path class="st2" d="M85.2,156c0-72-58.3-130.6-130.6-130.6s-130.8,58.3-130.8,130.4L85.2,156z"/>
+		<circle class="st2" cx="-157.2" cy="133.8" r="40.8"/>
+		<ellipse class="st2" cx="-157.2" cy="133.8" rx="24.5" ry="24.5"/>
+		
+			<ellipse transform="matrix(0.3162 -0.9487 0.9487 0.3162 -76.9451 160.8406)" class="st2" cx="73.1" cy="133.8" rx="40.8" ry="40.8"/>
+		<circle class="st2" cx="73.1" cy="133.8" r="24.5"/>
+	</g>
+	<path class="st3" d="M-45,77.6l-20.9,54.3h-19.9l31.3-75h19l31.3,75h-19.9L-45,77.6z"/>
+	<line class="st4" x1="-123.2" y1="51" x2="-132" y2="40"/>
+	<circle class="st5" cx="-131.2" cy="40.8" r="1.5"/>
+</g>
+<g class="st0">
+	<path class="st6" d="M349.6,25.4c-41.2,0-74.6,33.4-74.6,74.6s33.4,74.6,74.6,74.6s74.6-33.4,74.6-74.6S390.7,25.4,349.6,25.4z
+		 M349.6,140.2c-22.2,0-40.2-18-40.2-40.2s18-40.2,40.2-40.2s40.2,18,40.2,40.2S371.8,140.2,349.6,140.2z"/>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="522.5173" y1="-783.2549" x2="572.9891" y2="-783.2549" gradientTransform="matrix(0.96 0.28 0.28 -0.96 43.0259 -805.3079)">
+		<stop  offset="0" style="stop-color:#E43562"/>
+		<stop  offset="1" style="stop-color:#662480"/>
+	</linearGradient>
+	<circle class="st7" cx="349.6" cy="100" r="25.2"/>
+</g>
+<g class="st0">
+	<path class="st8" d="M275.1,26.2v72.2c0,40.6,64.3,73.5,73.9,73.5c8,0,73.9-32.9,73.9-73.5V26.2H275.1z"/>
+	<path class="st9" d="M350.7,70.9l-18.6,48h-17.6l27.8-66.5H359l27.8,66.5h-17.5L350.7,70.9z"/>
+</g>
+<g>
+	<g>
+		<g>
+			<path class="st10" d="M553.5,83.3c0-32-25.9-57.9-57.9-57.9s-58.1,25.9-58.1,57.9H553.5z"/>
+			
+				<ellipse transform="matrix(0.3554 -0.9347 0.9347 0.3554 218.7338 464.172)" class="st10" cx="445.9" cy="73.5" rx="18.2" ry="18.2"/>
+			<circle class="st10" cx="445.9" cy="73.5" r="10.9"/>
+			<circle class="st10" cx="548.2" cy="73.5" r="18.2"/>
+			<circle class="st10" cx="548.2" cy="73.5" r="10.9"/>
+		</g>
+		<path class="st10" d="M495.8,48.7l-9.4,24.1h-8.8l14-33.2h8.4l13.9,33.2H505L495.8,48.7z"/>
+		<line class="st11" x1="461.1" y1="36.8" x2="457.2" y2="32.1"/>
+		<circle class="st12" cx="457.4" cy="32.3" r="0.7"/>
+	</g>
+	<g>
+		<g>
+			<path class="st13" d="M439,166c0-32,25.9-57.9,57.9-57.9s57.9,25.9,57.9,57.9H439z"/>
+			<circle class="st13" cx="546.5" cy="156" r="18.2"/>
+			<circle class="st13" cx="546.5" cy="156" r="10.9"/>
+			<circle class="st13" cx="444.2" cy="156" r="18.2"/>
+			<circle class="st13" cx="444.2" cy="156" r="10.9"/>
+		</g>
+		<line class="st11" x1="531.4" y1="119.4" x2="535.2" y2="114.6"/>
+		<circle class="st14" cx="535" cy="115" r="0.7"/>
+	</g>
+	<g>
+		<path class="st15" d="M433.4,130.5c-14.5-6-26-19.6-29.4-36.3c-5.4-26.9,12.2-53.5,39.1-58.8"/>
+		<polyline class="st15" points="431.2,117.7 433.9,131.3 420.3,134.1 		"/>
+	</g>
+	<g>
+		<path class="st15" d="M555.9,40.3c15.3,3.7,28.8,15.4,34.5,31.5c9.4,25.9-4.1,54.7-29.8,64.1"/>
+		<polyline class="st15" points="560.1,52.7 555.4,39.7 568.4,34.8 		"/>
+	</g>
+</g>
+</svg>

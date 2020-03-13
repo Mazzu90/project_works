@@ -1,50 +1,56 @@
 <?
 namespace Config\Core\Query;
-use Config\Core\Query\QueryField;
 use Config\Utils\Util;
-use Config\Utils\Data;
 
 class Range extends QueryField{
     
     public function getCondition($and){
-        
+
+        var_dump($this);
         $and = ($and)? ' AND ' : '';
         
-        if(Util::isValid($this->min) && Util::isValid($this->max)){
-            
+        if(Util::isValid($this->min) && Util::isValid($this->max))
             return $and.$this->table.'.'.$this->field." BETWEEN '".$this->min."' AND '".$this->max."'";             
         
-        }elseif(Util::isValid($this->min)){
-            
+        elseif(Util::isValid($this->min))
             return $and.$this->table.'.'.$this->field." > '".$this->min."'";
         
-        }elseif(Util::isValid($this->max)){
-            
+        elseif(Util::isValid($this->max))
             return $and.$this->table.'.'.$this->field." < '".$this->max."'";
-        }
-        else 
+
+        else
             return '';
-    }
-    
-    public function setFieldsFromHttpRequest($obj_idx){
-        
-        if(isset($_REQUEST[$obj_idx]['range'][$this->field])){
-            if(Util::isValid($_REQUEST[$obj_idx]['range'][$this->field]['min'])) $this->min = $_REQUEST[$obj_idx]['range'][$this->field]['min'];
-            if(Util::isValid($_REQUEST[$obj_idx]['range'][$this->field]['max'])) $this->max = $_REQUEST[$obj_idx]['range'][$this->field]['max'];
-        }
     }
 
     
-    public function setFieldsFromHttpRequestForJoinTable($objectName){        
+    public function setValueFromHttpRequest($obj_idx){
         
-        if(isset($_REQUEST['join']['range'][$this->field])){
-            if(Util::isValid($_REQUEST['join']['range'][$this->field]['min'])) $this->min = $_REQUEST['join']['range'][$this->field]['min'];      
-            if(Util::isValid($_REQUEST['join']['range'][$this->field]['max'])) $this->max = $_REQUEST['join']['range'][$this->field]['max'];
-        }        
+        if(isset($_REQUEST[$obj_idx]['range'][$this->field])):
+
+            if(Util::isValid($_REQUEST[$obj_idx]['range'][$this->field]['min']))
+                $this->min = $_REQUEST[$obj_idx]['range'][$this->field]['min'];
+
+            if(Util::isValid($_REQUEST[$obj_idx]['range'][$this->field]['max']))
+                $this->max = $_REQUEST[$obj_idx]['range'][$this->field]['max'];
+
+        endif;
+    }
+
+    
+    public function setFieldFromHttpRequestForJoinTable($objectName){
+        
+        if(isset($_REQUEST['join']['range'][$this->field])):
+
+            if(Util::isValid($_REQUEST['join']['range'][$this->field]['min']))
+                $this->min = mysql_real_escape_string($_REQUEST['join']['range'][$this->field]['min']);
+
+            if(Util::isValid($_REQUEST['join']['range'][$this->field]['max']))
+                $this->max = mysql_real_escape_string($_REQUEST['join']['range'][$this->field]['max']);
+
+        endif;
     }
     
     
 
     
 }  
-?> 

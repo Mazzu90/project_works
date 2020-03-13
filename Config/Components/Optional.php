@@ -1,38 +1,24 @@
 <?
 
 namespace Config\Entities;
-use Config\Core\Entities\Component;
+use Config\Core\Entities\Queryable;
 use Config\Utils\Util;
 use Config\Utils\Data;
 
-class Optional extends Component{
-    
+class Optional extends Queryable{
+
     public $selectFields = array('id_veicolo');
     public $additionalSearchFields = array('titolo0', 'titolo1','titolo2', 'titolo3');
 
     public static function getClass() {
-        
-        return __NAMESPACE__.'\Optional';    
+
+        return __NAMESPACE__.'\Optional';
     }
-    
+
     public static function getTable() {
         return 'optional';
-    }   
-    
-    /*public function getSelectFields(){
-        
-        $vars = $this->getFields();
-        $fields = array();
-        
-        foreach($vars as $var){
-            
-            if($this->{$var} instanceOf QueryField){
-                $field = $this->{$var}->getFieldForSelect();
-                $fields[] = $field;     
-            }
-        }
-        return $fields;
-    }*/
+    }
+
     
     public function __construct($search = false){       
         

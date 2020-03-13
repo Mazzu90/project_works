@@ -38,14 +38,14 @@ class PatternMatch extends QueryField{
             return  '';        
     }
     
-    public function setFieldsFromHttpRequest($obj_idx){
+    public function setValueFromHttpRequest($obj_idx){
         
         if(isset($_REQUEST[$obj_idx][$this->field])){
-            if(Util::isValid($_REQUEST[$obj_idx][$this->field])) $this->value = $_REQUEST[$obj_idx][$this->field];
+            if(Util::isValid($_REQUEST[$obj_idx]['match'][$this->field])) $this->value =$_REQUEST[$obj_idx]['match'][$this->field];
         }        
     }
 
-    public function setFieldsFromHttpRequestForJoinTable(){        
+    public function setFieldFromHttpRequestForJoinTable($obj){
         
         if(isset($_REQUEST['join'][$this->field])){
             if(Util::isValid($_REQUEST['join'][$this->field])) $this->value = $_REQUEST['join'][$this->field];      

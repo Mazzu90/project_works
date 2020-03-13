@@ -2,7 +2,8 @@
                 
 namespace Config\Pages;                    
 
-use Config\Core\Entities\Debugger; 
+use Config\Components\Immagine;
+use Config\Core\Entities\Debugger;
 use Config\Core\Entities\Page;  
 use Config\Components\Veicolo;       
 use Config\ComponentsMap;
@@ -14,13 +15,25 @@ class Marchi extends Page{
     public function show(){
         $method = "show()";
             
-        $generator = new HtmlGenerator();
+        //$generator = new HtmlGenerator();
         //$generator->stampaLista(new Veicolo(ComponentsMap::show_idx));
+
+        //$list = Veicolo::getDistinct(array('id_marca', 'make'), 'make DESC');
+        //var_dump($list);
+
+        //$list = Veicolo::getCount('id');
+        //var_dump($list);
+
+        echo 'cioa';
+        $_REQUEST[ComponentsMap::veicolo_idx]['range']['km']['min'] = '1000';
+
+        //$list = Veicolo::getList();
+        //var_dump($list);
+
+
         //$lista_marchi = Veicolo::getDistinct('make');
 
-        //print_r($lista_marchi);
-
-        $configurations = array(
+       /* $configurations = array(sss
 
             0 => array(
                 'name' => "1['make']",
@@ -32,12 +45,14 @@ class Marchi extends Page{
                 'name' => "1['model']",
                 'id' => 'model',
                 'options' => Veicolo::getDistinct(array('id_modello', 'model'), ' field_1 ASC'),
-            )
+            ),
+
+
         );
 
 
         $form = new ResearchForm();
-        $form->createSelect('TEST', $configurations);
+        $form->createSelect('TEST', $configurations);*/
 
     }
 }

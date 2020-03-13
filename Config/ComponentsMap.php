@@ -22,16 +22,20 @@ final class ComponentsMap{
     //identificativi query
     const return_current_obj_idx = 0;
     const return_dynamic_obj_idx = 1;
-    const return_single_field_idx = 2;
+    const return_array_idx = 2;
+    const return_single_field_idx = 3;
 
-    public static $components_warehouse = array(
+    public static $components = array(
         
         'Veicolo' => array(        
             
             'table' => 'veicoli',        
-            'query_limit' => 10,
-            'query_order' => 'Prezzo DESC',
-            'query_offset' => null,  
+
+            'query_parameters' => array(
+                'limit' => 2,
+                'offset' => null,
+                'order'=> 'prezzo DESC'
+            ),
         
             'show_fields' => array(                
                 'id',

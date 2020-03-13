@@ -2,7 +2,7 @@
 
 namespace Config\Components;
 
-use Config\Core\Entities\Component;
+use Config\Core\Entities\Queryable;
 use Config\Core\Entities\Debugger;
 use Config\Core\Query\Pool;
 use Config\Core\Query\Basic;
@@ -14,7 +14,7 @@ use Config\Properties;
 use Config\ComponentsMap;
 
 
-class Veicolo extends Component
+class Veicolo extends Queryable
 {    
     
     private $debug;
@@ -46,15 +46,15 @@ class Veicolo extends Component
         13 => 'Monovolume'
     );
 
-    public function __construct($constructor_idx = -1, $extra_param = false)
+    public function __construct()//$constructor_idx = -1, $extra_param = false)
     {   
         $method = ('__construct()');
         $this->debug = new Debugger('VEICOLO');
         $this->debug->constructing();
 
-        $this->debug->generic("IDX: ".$constructor_idx);
+        //$this->debug->generic("IDX: ".$constructor_idx);
 
-        switch ($constructor_idx):
+       /* switch ($constructor_idx):
 
             case ComponentsMap::search_idx :
 
@@ -63,6 +63,7 @@ class Veicolo extends Component
                 $this->id->value = $this::getIdPoolByOptionals();
                 break;
 
+            /*
             case ComponentsMap::count_search_idx :
 
                 parent::__construct(ComponentsMap::custom_var_idx);
@@ -111,30 +112,12 @@ class Veicolo extends Component
 
             break;
 
-        endswitch;
+        endswitch;*/
 
-        echo 'var to unset: '.print_r($this->suggested_unset_order);
+        //echo 'var to unset: '.print_r($this->suggested_unset_order);
         $this->debug->constructed();           
     }
 
-
-    public static function getDistinct($fields, $orderBy = false){
-
-        $return_idx = is_array($fields) ? ComponentsMap::return_dynamic_obj_idx : ComponentsMap::return_single_idx;
-        $veicolo = new Veicolo(ComponentsMap::distinct_search_idx, $fields);
-        if($orderBy)
-            $veicolo->query_orderBy = $orderBy;
-        $list = $veicolo->getList($return_idx);
-        return $list;
-    }
-
-
-    public static function getCount($field){
-
-        $veicolo = new Veicolo(ComponentsMap::count_search_idx, $field);
-        return $veicolo->getList(ComponentsMap::return_single_field_idx);
-
-    }
 
     //USO INTERNO
     public function fuelEncode($fuel)
@@ -181,8 +164,7 @@ class Veicolo extends Component
         $this->print_km = ($this->km > 0) ? number_format($this->km, 0, ",", ".").' km' : $undefined;
         $this->print_alimentazione = ($this->alimentazione) ? $this->fuelDecode($this->alimentazione) : $undefined;
         $this->print_prezzo = ($this->prezzo > 0) ? number_format($this->prezzo,0,',','.') : $undefined;
-        $this->print_interni = ($this->interni) ?: $undefined;        
-        $this->print_url = $this->setUrl();
+        $this->print_interni = ($this->interni) ?: $undefined;
     } 
     
     //USO INTERNO
@@ -275,7 +257,6 @@ class Veicolo extends Component
 
         return '$list';
     }
-    
 
 
     

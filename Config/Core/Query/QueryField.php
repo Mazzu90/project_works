@@ -15,8 +15,12 @@ abstract class QueryField{
     private $debug;
     
     public function __construct($table, $field_name, $alias = false){
-        
-        $this->debug = new Debugger("QUERY FIELD");
+
+        $reflection_class = new \ReflectionClass($this);
+        $this->class = $reflection_class->getName();
+        $class_no_namespace = $reflection_class->getShortName();
+
+        $this->debug = new Debugger("QUERY FIELD/$class_no_namespace");
         $method = '__construct()';
         $this->debug->constructing();
 
@@ -35,12 +39,25 @@ abstract class QueryField{
         $this->debug->constructed();
     }
     
-    abstract public function getCondition($and);       
-    abstract public function setFieldsFromHttpRequest($obj_idx);
+    abstract public function getCondition($and);
     
     public function getFieldForSelect(){
-        
+
         return $this->table.'.'.$this->field.$this->alias;
+    }
+
+    public function setValueFromHttpRequest($obj_idx){
+
+        if(isset($_REQUEST[$obj_idx][$this->field])){
+            if(Util::isValid($_REQUEST[$obj_idx][$this->field])) $this->value = $_REQUEST[$obj_idx][$this->field];
+        }
+    }
+
+    public function setFieldFromHttpRequestForJoinTable($obj_idx){
+
+        if(isset($_REQUEST['join'][$this->field])){
+            if(Util::isValid($_REQUEST[$obj_idx]['join'][$this->field])) $this->value = $_REQUEST[$obj_idx]['join'][$this->field];
+        }
     }
     
     public function unsetField($var = 'value'){

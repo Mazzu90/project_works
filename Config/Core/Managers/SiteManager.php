@@ -42,8 +42,8 @@ class SiteManager{
         $this->debug->tryingToConstruct('FOOTER', $method);
         $this->footer = new Footer();
         
-        $this->debug->tryingToSet('numero_veicoli', $method);
-        self::$numero_veicoli = Veicolo::getCount('id');
+        //$this->debug->tryingToSet('numero_veicoli', $method);
+        //self::$numero_veicoli = Veicolo::getCount('id');
         
         $this->debug->constructed();               
     } 

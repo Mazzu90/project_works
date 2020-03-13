@@ -35,12 +35,12 @@ class Join extends QueryField {
         return $this->field->getFieldForSelect();
     }
     
-    public function setFieldsFromHttpRequest($obj_idx){
+    public function setValueFromHttpRequest($obj_idx){
 
         $this->field->setFieldsFromHttpRequestForJoinTable();        
     }
 
-    public function setFieldsFromHttpRequestForJoinTable(){        
+    public function setFieldFromHttpRequestForJoinTable(){
         
         $this->field->setFieldsFromHttpRequestForJoinTable();    
     }

@@ -36,16 +36,12 @@ class Util{
         }
     }
 
-    public function isValid($value)
+    public static function isValid($value)
     {
-        $debug= new Debugger("UTIL");
         
-        if (isset($value) && $value  != false && (((int) $value > 0) || !is_numeric($value) && $value != '')){
-            $debug->generic("valid");
-            
+        if (isset($value) && $value  != false && (((int) $value > 0) || !is_numeric($value) && $value != ''))
             return true;
-        }
-        $debug->generic("invalid");  
+
         return false;
     }
 

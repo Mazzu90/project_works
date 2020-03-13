@@ -2,12 +2,9 @@
 
 namespace Config\Core\Query;
 
-use Config\Core\Query\QueryField;
 use Config\Utils\Util;
 
 class Distinct extends QueryField {
-
-
 
     public function getFieldForSelect(){
 
@@ -21,10 +18,4 @@ class Distinct extends QueryField {
         else return '';
     }
 
-    public function setFieldsFromHttpRequest($obj_idx)
-    {
-        if(isset($_REQUEST[$obj_idx][$this->field])){
-            if(Util::isValid($_REQUEST[$obj_idx][$this->field])) $this->value = $_REQUEST[$obj_idx][$this->field];
-        }
-    }
 }

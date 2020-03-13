@@ -153,13 +153,15 @@ class HtmlGenerator{
     
     public function stampaLista($obj)
     {  
-        //var_dump($obj);
-        $list = $obj->getList();
+        $method = 'stampaLista()';
+        $this->debug->tryingToCreate('ListOfObjectToPrint', $method);
+        $list = $obj::getList();
         //var_dump($list);
+        $this->debug->tryingToCreate('ListOfObjectToPrint', $method);
         $list = (count($list) > 0) ? $list : $obj->getSuggestedList();
         
         foreach($list as $element):
-            //var_dump($element);
+            var_dump($element);
             $element->prepareFields();
             echo '$fields settes';
             $this->stampaScheda($element);        

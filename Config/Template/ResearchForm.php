@@ -664,6 +664,7 @@ class ResearchForm
                 <?php foreach($selects_properties as $select):  ?>
 
                     <div class="<?php echo $internal_div_class ?>">
+
                         <select name="<?php echo $select['name'] ?>" class="<?php echo $select_class ?>" id="<?php echo $select['id'] ?>">
 
                             <?php foreach ($select['options'] as $opt): ?>
@@ -686,7 +687,8 @@ class ResearchForm
     public function createCheckBox(){
 
         $name = "optional['titolo][]";
-        $value
+        $value = '"ABS';
+        $label = '"ABS"';
 
         ?>
         <div class="b-items__aside-main-body-item">

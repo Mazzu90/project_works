@@ -2,15 +2,17 @@
                 
 namespace Config\Pages;                    
 
-use Config\Core\Entities\Debugger; 
+use Config\Components\Immagine;
+use Config\Core\Entities\Debugger;
 use Config\Core\Entities\Page;                     
 
 class Servizi extends Page{                                   
     
     public function show(){
         $method = "show()";
-     
-        $this->debug->generic("AUTO-GENERATED");                                     
+
+        $list = Veicolo::getListBy('id', '3972');
+        var_dump($list);
     }
 }
 ?>

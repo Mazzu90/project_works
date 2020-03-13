@@ -2,21 +2,20 @@
 
 namespace Config\Components;
 
-use Config\Core\Entities\Component;
+use Config\Core\Entities\Queryable;
 use Config\Core\Query\Basic;
 use Config\Core\Entities\Debugger;
 
-class Immagine extends Component{
+class Immagine extends Queryable{
     
     private $debug;
 
-    public function __construct($obj = false)
-    {
-        $this->debug = new Debugger('IMMAGINE');
+    public function __construct()
+    { $this->debug = new Debugger('IMMAGINE');
         $method = '__construct()';
         $this->debug->constructing();
 
-        $this->debug->tryingToConstruct('Component', $method);
+        /*$this->debug->tryingToConstruct('Component', $method);
         parent::__construct();
 
         $this->debug->generic("show fields after Components Constructor:");
@@ -28,22 +27,10 @@ class Immagine extends Component{
             $this->id_veicolo = new Basic($this->table, 'id_veicolo');
             $this->id_veicolo->value = $obj->id;
         endif;
-        
+        */
         $this->debug->constructed();
     }
-    
-    //RICHIESTO DA COMPONENTE
-    public static function getTable()
-    {
-        return 'immagini';
-    }
-    
-    //RICHIESTO DA COMPONENTE
-    public static function getClass()
-    {
-       return __NAMESPACE__.'\Immagine';
-    }   
-    
+
 }
 
 

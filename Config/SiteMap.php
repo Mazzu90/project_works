@@ -36,7 +36,11 @@ final class SiteMap{
     
     public static $pages_archive = array(
 
-        
+        'ciao' => array(
+
+        ),
+
+
         'officina' => array(
 
         ),

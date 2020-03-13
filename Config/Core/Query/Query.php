@@ -3,215 +3,152 @@
 namespace Config\Core\Query;
 
 use Config\ComponentsMap;
-use Config\Core\Query\Basic;
-use Config\Core\Query\Join;
-use Config\Core\Query\Pool;
-use Config\Core\Query\Range;
-use Config\Core\Query\PatternMatch;
-use Config\Core\Query\QueryField;
-use Config\Core\Query\Count;
-use Config\Core\Distinct;
-use Config\Utils\Util;
-use Config\Utils\Data;
 use Config\Utils\Connection;
-use Config\Core\Entities\Debugger;
+use Config\Utils\Util;
 
+class Query
+{
 
-class Query{
-    
-    public $type;
-    public $conditioning_fields;
-    public $select_fields;
-    public $select = ' SELECT ';
-    public $where = ' WHERE ';
-    public $limit;
-    public $join = '';
-    public $orderBy;
-    public $offset;  
-    public $object;
-    public $connection;
-    public $object_class;
-    public $return_idx;
-    
-    private $debug;
-    
-    public function __construct($obj, $return_idx) {
-        
-        $this->debug = new Debugger("QUERY");
-        $method= '__construct()';
-        $this->debug->constructing();
-               
-        $this->debug->tryingToSet('this->table(prop)', $method);
-        $this->table = $obj->table;
-        
-        $this->debug->tryingToSet('this->searchFields', $method);
-        $this->conditioning_fields = $obj->getAllFields();
-        
-        $this->debug->tryingToSet('this->selectFields', $method);
-        $this->select_fields = $obj->getShowFields();
-        
-        $this->debug->tryingToSet('this->select', $method);
-        $this->select = $this->setSelect();
-        
-        $this->debug->tryingToSet('this->object', $method);
-        $this->object = $obj; 
-        
-        $this->debug->tryingToSet('this->objectClass', $method);
-        $this->object_class = $return_idx === ComponentsMap::return_dynamic_obj_idx ? 'Config\Components\Dynamic' : $obj->class;
-        
-        $this->debug->tryingToCreate('Conditions', $method, 'setConditions()');
-        $this->setConditions($obj);
+    private static function getSelectReadyFields($obj)
+    {
+        $formatted_fields = array();
+        if (isset($obj->show_fields)):
+            print_r($obj->show_fields);
+            foreach ($obj->show_fields as $prop)
+                $formatted_fields[] = $obj->{$prop}->getFieldForSelect();
+        else:
+            echo '<br>$showFields not setted';
+        endif;
 
-        $this->return_idx = $return_idx;
-
-        $this->connection = new Connection();
-        
-        $this->connection->open();  
-
-        
-        $this->debug->constructed();       
-    }   
-    
-    public function __destruct(){
-        $this->connection->close();
+        return $formatted_fields;
     }
 
-    public function chooseClass($obj){
 
-        foreach ($obj->show_fields as $field):
-            if($obj->{$field} instanceof Distinct || $obj->{$field} instanceof Count)
-                return 'Config\Components\Dynamic';
+    private static function getSelect($obj)
+    {
+        $select = ' SELECT';
+        $select_fields = self::getSelectReadyFields($obj);
+
+        foreach ($select_fields as $f):
+            $select .= ' ' . $f . ',';
         endforeach;
 
-        return $this->object->class;
+        $select = rtrim($select, ',');
+        $select .= ' FROM ' . $obj->table;
+
+        return $select;
     }
-    
-    public function setConditions($obj){
-        
-        $method = 'setConditions()';
-        $this->debug->tryingToCreate('Where', $method, $method);
+
+
+    private static function getConditions($obj)
+    {
+        $where_fields = array_merge($obj->show_fields, $obj->search_fields);
         $and = false;
-        
-        foreach($this->conditioning_fields as $var):
-            
-            $this->debug->generic("checking: ".$var);
+        $where = ' WHERE ';
+        $join = '';
 
-            if($obj->{$var} instanceOf QueryField):
-                $this->debug->generic($var." instanceOf QueryField");
+        foreach ($where_fields as $var):
+            if ($obj->{$var} instanceOf QueryField):
 
-                if($this->where != ' WHERE ') 
+                if ($where != ' WHERE ')
                     $and = true;
 
-                $this->debug->generic('Where:'.$this->where );
-                $this->where .= $obj->{$var}->getCondition($and);
-                
-                if($obj->{$var} instanceOf Join)
-                    $this->join .= $obj->{$var}->getJoinCondition();
-            
-            endif;   
-        
-        endforeach;
-        
-        $this->debug->generic("where: ".$this->where);
-        if ($this->where == ' WHERE ') $this->where = '';        
-    }
-    
-    public function setSelect(){
-        
-        $method = 'setSelect()';
-        $this->debug->tryingToSet("select", $method);
-        $select = ' SELECT';
-        
-        foreach($this->select_fields as $f):
-            $select .= ' '.$f.',';
-            $this->debug->generic($select);       
-        endforeach;
-        
-        $select = rtrim($select, ',');
-        $select.= ' FROM '.$this->table;
-        
-        $this->debug->generic($select);      
-        
-        return $select; 
-    } 
-    
-    public function getLimit(){
-        
-        if(Util::isValid($this->object->query_limit))
-            return ' LIMIT '.$this->object->query_limit;
-        else 
-            return '';
-    }
-    
-    public function getOffset(){
-        
-        if(Util::isValid($this->object->query_offset))
-            return ' OFFSET '.$this->object->query_offset;
-        else 
-            return '';
-    }
-    
-    public function getOrderBy(){
-        if (Util::isValid($this->object->query_orderBy))
-            return ' ORDER BY '.$this->object->query_orderBy;
-        else    
-            return '';
-        
-    }
-    public function getQuery(){
-        
-        $method = 'getQuery()';
-        $this->debug->tryingToSet('query', $method); 
-        
-        return $this->select.$this->join.$this->where.$this->getOrderBy().$this->getLimit().$this->getOffset();
-    }
-    
-    
-    public function executeQuery(){
+                $where .= $obj->{$var}->getCondition($and);
 
-        $method = 'executeQuery()';
+                if ($obj->{$var} instanceOf Join)
+                    $join .= $obj->{$var}->getJoinCondition();
 
-        $this->debug->tryingToCreate('Query', $method, 'getQuery()');
-        $this->debug->generic('Query: '.$this->getQuery());
-        $this->debug->tryingToSet("result", $method);
-        $result= mysql_query($this->getQuery());
-        //var_dump($result);
+            endif;
+        endforeach;
+
+        if ($where === ' WHERE ') $where = '';
+        return $join . $where;
+    }
+
+
+    private static function getOrderBy($obj)
+    {
+        if (Util::isValid($obj->query_parameters['order']))
+            return ' ORDER BY ' . $obj->query_parameters['order'];
+        else
+            return '';
+
+    }
+
+
+    private static function getLimit($obj)
+    {
+        if (Util::isValid($obj->query_parameters['limit']))
+            return ' LIMIT ' . $obj->query_parameters['limit'];
+        else
+            return '';
+    }
+
+
+    private static function getOffset($obj)
+    {
+        if (Util::isValid($obj->query_parameters['offset']))
+            return ' OFFSET ' . $obj->query_parameters['offset'];
+        else
+            return '';
+    }
+
+
+    private static function getQuery($obj)
+    {
+        $query = self::getSelect($obj) . self::getConditions($obj) . self::getOrderBy($obj) . self::getLimit($obj) . self::getOffset($obj);
+        echo $query;
+        return $query;
+    }
+
+
+    private static function executeQuery($obj)
+    {
+        $connection = new Connection();
+        $connection->open();
+        $result = mysql_query(mysql_real_escape_string(self::getQuery($obj)));
+        $connection->close();
+
         return $result;
     }
-    
-    public function getObjectList(){
-        $method = 'getObjectList()';
 
+
+    public static function getList($obj)
+    {
         $list = array();
+        $result = self::executeQuery($obj);
 
-        $this->debug->tryingToCreate("result", $method, 'executeQuery()');
-        $result = $this->executeQuery();
+        if ($obj->return_idx === ComponentsMap::return_single_field_idx):
 
-        $this->debug->generic("this->object->class: ".$this->object_class);
-
-        if($this->return_idx === ComponentsMap::return_single_field_idx):
-
-            while($row = mysql_fetch_array($result)):
-                $this->debug->tryingToSet('list[]', $method);
+            while ($row = mysql_fetch_array($result)):
                 $list = $row[0];
-                $this->debug->generic('list[] setted');
+            endwhile;
+
+        elseif ($obj->return_idx === ComponentsMap::return_array_idx):
+
+            while ($row = mysql_fetch_assoc($result)):
+
+                $prepared_row = array();
+
+                foreach ($row as $field)
+                    $prepared_row[$field] = $row[$field];
+
+                $list[] = $prepared_row;
+
             endwhile;
 
         else:
 
-            while($row = mysql_fetch_object($result, $this->object_class)):
-                $this->debug->tryingToSet('objectList[]', $method);
+            $object_class = $obj->return_idx === ComponentsMap::return_dynamic_obj_idx ? 'Config\Components\Dynamic' : get_class($obj);
+
+            while ($row = mysql_fetch_object($result, $object_class)):
                 $list[] = $row;
-                $this->debug->generic('objectList[] setted');
             endwhile;
 
         endif;
 
-        $this->debug->generic("listing complete");
-        //print_r($objectList);
-        $this->__destruct();
-        
         return $list;
     }
-    
+
+
 }

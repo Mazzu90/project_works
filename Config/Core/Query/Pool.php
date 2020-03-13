@@ -16,14 +16,14 @@ class Pool extends QueryField{
         else return '';        
     }
     
-    public function setFieldsFromHttpRequest($obj_idx){
+    public function setValueFromHttpRequest($obj_idx){
 
         if(isset($_REQUEST[$obj_idx]['pool'][$this->field])){
             if(Util::isValid($_REQUEST[$obj_idx]['pool'][$this->field])) $this->value = $_REQUEST[$obj_idx]['pool'][$this->field];
         }     
     }
     
-    public function setFieldsFromHttpRequestForJoinTable(){        
+    public function setFieldFromHttpRequestForJoinTable(){
         
         if(isset($_REQUEST['join']['pool'][$this->field])){
             if(Util::isValid($_REQUEST['join']['pool'][$this->field])) $this->value = $_REQUEST['join']['pool'][$this->field];      

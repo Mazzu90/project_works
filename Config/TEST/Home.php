@@ -2,7 +2,7 @@
                    
                     
  
-                    namespace ciao Config\TEST; 
+                    namespace Config\TEST;
  
                     
  

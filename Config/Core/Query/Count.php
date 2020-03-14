@@ -7,12 +7,12 @@ use Config\Utils\Util;
 
 class Count extends QueryField{    
     
-    public function getFieldForSelect(){
+    public function getDotNotation(){
 
         return ' COUNT('.$this->field.')'.$this->alias;   
     }
     
-    public function getCondition($and){
+    public function getWhereClause($and){
         
         $and = ($and)? ' AND ' : '';
         if(Util::isValid($this->value))return $and.$this->table.'.'.$this->field." = '".$this->value."'";

@@ -24,35 +24,40 @@ class Marchi extends Page{
         //$list = Veicolo::getCount('id');
         //var_dump($list);
 
-        echo 'cioa';
-        $_REQUEST[ComponentsMap::veicolo_idx]['range']['km']['min'] = '1000';
+
+        //$_REQUEST[ComponentsMap::veicolo_idx]['range']['km']['min'] = '1000';
 
         //$list = Veicolo::getList();
         //var_dump($list);
 
-
+        //$list = Immagine::getList();
+        //$list = Immagine::getListBy('id_veicolo', 3821);
+        //$list = Veicolo::getListBy('id', 3980);
+        //var_dump($list);
+        //echo $list;
         //$lista_marchi = Veicolo::getDistinct('make');
+        $core_object = ComponentsMap::veicolo_idx;
 
-       /* $configurations = array(sss
+        $configurations = array(
 
-            0 => array(
-                'name' => "1['make']",
-                'id' => 'make',
-                'options' => Veicolo::getDistinct(array('id_marca', 'make'), ' field_1 ASC'),
+            'make' => array(
+                'options' => Veicolo::getDistinct(array('id_marca', 'make'), ' make ASC'),
             ),
+
+
 
             1 =>array(
                 'name' => "1['model']",
                 'id' => 'model',
-                'options' => Veicolo::getDistinct(array('id_modello', 'model'), ' field_1 ASC'),
+                'options' => Veicolo::getDistinct(array('id_modello', 'model'), ' model ASC'),
             ),
-
 
         );
 
+        print_r($configurations[0]);
 
         $form = new ResearchForm();
-        $form->createSelect('TEST', $configurations);*/
+        $form->createSelect('TEST', $configurations);
 
     }
 }

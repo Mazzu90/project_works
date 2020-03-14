@@ -4,8 +4,7 @@
  
                     namespace Config\TEST;
  
-                    
- 
+
                     use Config\Core\Entities\Debugger; 
  
                     use Config\Core\Entities\Page; 

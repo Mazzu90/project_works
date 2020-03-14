@@ -25,12 +25,12 @@ class Join extends QueryField {
         return $this->type.' JOIN '.$this->joinTable.' ON '.$this->internalKey.' = '.$this->foreignKey;
     }
     
-    public function getCondition($and){
+    public function getWhereClause($and){
               
         return $this->field->getCondition($and);
     }
     
-    public function getFieldForSelect(){
+    public function getDotNotation(){
         
         return $this->field->getFieldForSelect();
     }

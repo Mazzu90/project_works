@@ -1,11 +1,11 @@
 <?
 
 namespace Config\Entities;
-use Config\Core\Entities\Queryable;
+use Config\Core\Entities\Querable;
 use Config\Utils\Util;
 use Config\Utils\Data;
 
-class Optional extends Queryable{
+class Optional extends Querable{
 
     public $selectFields = array('id_veicolo');
     public $additionalSearchFields = array('titolo0', 'titolo1','titolo2', 'titolo3');

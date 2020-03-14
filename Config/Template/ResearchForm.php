@@ -669,7 +669,7 @@ class ResearchForm
 
                             <?php foreach ($select['options'] as $opt): ?>
 
-                                <option value="<?php echo $opt->field_0 ?>"> <?php echo $opt->field_1 ?> </option>
+                                <option value="<?php echo $opt[0] ?>"> <?php echo $opt[1] ?> </option>
 
                             <?php endforeach; ?>
 

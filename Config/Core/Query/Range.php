@@ -4,7 +4,7 @@ use Config\Utils\Util;
 
 class Range extends QueryField{
     
-    public function getCondition($and){
+    public function getWhereClause($and){
 
         var_dump($this);
         $and = ($and)? ' AND ' : '';

@@ -10,7 +10,7 @@ class PatternMatch extends QueryField{
     public $value;
     public $type = 'any'; // start, end, every
     
-    public function getCondition($and){
+    public function getWhereClause($and){
         
         $value = $this::setValueFromMatchType();
         $and = ($and)? ' AND ' : '';

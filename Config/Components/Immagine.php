@@ -2,11 +2,10 @@
 
 namespace Config\Components;
 
-use Config\Core\Entities\Queryable;
-use Config\Core\Query\Basic;
+use Config\Core\Entities\Querable;
 use Config\Core\Entities\Debugger;
 
-class Immagine extends Queryable{
+class Immagine extends Querable{
     
     private $debug;
 

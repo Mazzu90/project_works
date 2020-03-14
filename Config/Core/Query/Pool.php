@@ -9,7 +9,7 @@ class Pool extends QueryField{
     public $field;
     public $value;
     
-    public function getCondition($and){
+    public function getWhereClause($and){
         
         $and = ($and)? ' AND ' : '';
         if(Util::isValid($this->value))return $and.$this->table.'.'.$this->field.' IN '.$this->value;

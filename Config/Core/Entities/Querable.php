@@ -11,20 +11,18 @@ use Config\Core\Query\QueryField;
 use Config\ComponentsMap;
 
 
-abstract class Queryable{
+abstract class Querable{
 
     private static $class;
 
     private static function getNewInstance()
     {
-        echo 'here';
         $full_path_class = get_called_class();
         $obj = new $full_path_class;
         $obj->class = end(explode('\\', $full_path_class));
         self::$class = $obj->class;
         $obj->table = self::getTable();
         $obj->idx = constant('Config\ComponentsMap::'.strtolower($obj->class).'_idx');
-
 
         return $obj;
     }
@@ -36,7 +34,21 @@ abstract class Queryable{
         $obj->show_fields = self::getShowFields();
         $obj->search_fields = self::getSearchFields();
         $obj = self::setFieldsFromRequest($obj);
-        $obj->query_parameters = self::getQueryParameters();
+        $obj->query_settings = self::getQuerySettings();
+        $obj->return_idx = ComponentsMap::return_current_obj_idx;
+        $obj->filter = true;
+
+        return Query::getList($obj);
+    }
+
+    public static function getListBy($field, $value)
+    {
+        $obj = self::getNewInstance();
+
+        $obj->show_fields = self::getShowFields();
+        $obj->search_fields = self::getSearchFields();
+        $obj = self::setBlankQuerable($obj);
+        $obj->{$field}->value = $value;
         $obj->return_idx = ComponentsMap::return_current_obj_idx;
 
         return Query::getList($obj);
@@ -62,7 +74,7 @@ abstract class Queryable{
             $obj->show_fields[] = $fields;
         endif;
 
-        $obj->return_idx = is_array($fields) ? ComponentsMap::return_dynamic_obj_idx : ComponentsMap::return_array_idx;
+        $obj->return_idx = ComponentsMap::return_num_array_idx;
 
         if($order_by)
             $obj->query_parameters['order'] = $order_by;
@@ -74,6 +86,7 @@ abstract class Queryable{
     public static function getCount($field)
     {
         $obj = self::getNewInstance();
+
         $alias = 'count_'.$field;
         $obj->{$alias} = new Count($obj->table, 'id', $alias);
         $obj->show_fields[] = $alias;
@@ -86,7 +99,6 @@ abstract class Queryable{
     protected static function setFieldsFromRequest($obj)
     {
         $properties = array_merge($obj->show_fields, $obj->search_fields);
-        echo'<br> object_idx: ';print_r($obj->idx);
 
         foreach($properties as $prop):
             if(!(isset($obj->{$prop}))  || ($obj->{$prop} instanceOf QueryField)):
@@ -106,6 +118,18 @@ abstract class Queryable{
         return $obj;
     }
 
+    protected static function setBlankQuerable($obj)
+    {
+        $properties = array_merge($obj->show_fields, $obj->search_fields);
+
+        foreach($properties as $prop):
+            if(!(isset($obj->{$prop}))  || ($obj->{$prop} instanceOf QueryField))
+                    $obj->{$prop} = new Basic($obj->table, $prop);
+        endforeach;
+
+        return $obj;
+    }
+
 
     protected static function getTable()
     {
@@ -114,7 +138,7 @@ abstract class Queryable{
     }
 
 
-    protected static function getQueryParameters()
+    protected static function getQuerySettings()
     {
         if(isset(ComponentsMap::$components[self::$class]['query_parameters']))
             return  ComponentsMap::$components[self::$class]['query_parameters'];
@@ -130,23 +154,10 @@ abstract class Queryable{
 
     protected static function getSearchFields()
     {
-        if(isset(ComponentsMap::$components[self::$class]['show_fields']))
-            return ComponentsMap::$components[self::$class]['show_fields'];
+        if(isset(ComponentsMap::$components[self::$class]['search_fields']))
+            return ComponentsMap::$components[self::$class]['search_fields'];
     }
 
 
-    public static function getListBy($field, $value){
-
-        $obj = self::getNewInstance();
-        $obj->show_fields = self::getShowFields();
-        $obj->search_fields = self::getSearchFields();
-        $obj->{$field} = new Basic($obj->table, $field);
-        $obj->{$field}->value = $value;
-        $obj->return_idx = ComponentsMap::return_current_obj_idx;
-
-        return Query::getList($obj);
-
-
-    }
 
 }

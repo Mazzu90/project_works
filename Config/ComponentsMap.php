@@ -22,8 +22,10 @@ final class ComponentsMap{
     //identificativi query
     const return_current_obj_idx = 0;
     const return_dynamic_obj_idx = 1;
-    const return_array_idx = 2;
-    const return_single_field_idx = 3;
+    const return_num_array_idx = 2;
+    const return_assoc_array_idx = 3;
+    const retunr_both_array = 4;
+    const return_single_field_idx = 5;
 
     public static $components = array(
         
@@ -36,7 +38,7 @@ final class ComponentsMap{
                 'offset' => null,
                 'order'=> 'prezzo DESC'
             ),
-        
+
             'show_fields' => array(                
                 'id',
                 'make',
@@ -104,13 +106,17 @@ final class ComponentsMap{
         'Immagine' => array(
 
             'table' => 'immagini',
-            'query_limit' => 2,
+            'query_parameters' => array(
+                'limit' => 2,
+                'offset' => null,
+                'order'=> null,
+            ),
         
             'show_fields' => array(                
                 'id', 
                 'img', 
                 'img_big', 
-                'img_hd', 
+                'img_hd',
                 'titolo'
             ), 
             
@@ -119,7 +125,6 @@ final class ComponentsMap{
             ),
         
         ),
-                
         
         
         'Optional' => array(

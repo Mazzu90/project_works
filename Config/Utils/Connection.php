@@ -16,11 +16,12 @@ class Connection{
         $this->db_user = Properties::db_user;
         $this->db_password = Properties::db_password;
         $this->db_encoding = Properties::db_encoding;
+        $this->open();
     }
     
     function __destruct(){        
         
-        unset($this->properties);
+        $this->close();
     }
     
     public function open(){       
@@ -35,8 +36,10 @@ class Connection{
     
     public function close(){
         
-        if (isset($this->connection))
+        if (isset($this->connection)):
             @mysql_close($this->connection);
+            unset($this->connection);
+        endif;
     }   
     
 }

@@ -39,9 +39,9 @@ abstract class QueryField{
         $this->debug->constructed();
     }
     
-    abstract public function getCondition($and);
+    abstract public function getWhereClause($and);
     
-    public function getFieldForSelect(){
+    public function getDotNotation(){
 
         return $this->table.'.'.$this->field.$this->alias;
     }

@@ -13,9 +13,9 @@ class Query
     {
         $formatted_fields = array();
         if (isset($obj->show_fields)):
-            print_r($obj->show_fields);
-            foreach ($obj->show_fields as $prop)
-                $formatted_fields[] = $obj->{$prop}->getFieldForSelect();
+            foreach ($obj->show_fields as $prop):
+                    $formatted_fields[] = $obj->{$prop}->getFieldForSelect();
+            endforeach;
         else:
             echo '<br>$showFields not setted';
         endif;
@@ -28,58 +28,55 @@ class Query
     {
         $select = ' SELECT';
         $select_fields = self::getSelectReadyFields($obj);
-
         foreach ($select_fields as $f):
             $select .= ' ' . $f . ',';
         endforeach;
-
         $select = rtrim($select, ',');
         $select .= ' FROM ' . $obj->table;
-
         return $select;
     }
 
 
-    private static function getConditions($obj)
+    private static function getClauses($obj)
     {
-        $where_fields = array_merge($obj->show_fields, $obj->search_fields);
-        $and = false;
-        $where = ' WHERE ';
-        $join = '';
+        if($obj->filter):
+            $join = '';
+            $where = ' WHERE ';
+            $and = false;
+            $filters = array_merge($obj->show_fields, $obj->search_fields);
 
-        foreach ($where_fields as $var):
-            if ($obj->{$var} instanceOf QueryField):
-
-                if ($where != ' WHERE ')
-                    $and = true;
-
-                $where .= $obj->{$var}->getCondition($and);
-
-                if ($obj->{$var} instanceOf Join)
-                    $join .= $obj->{$var}->getJoinCondition();
-
-            endif;
-        endforeach;
-
-        if ($where === ' WHERE ') $where = '';
-        return $join . $where;
+            foreach ($filters as $var):
+                if ($obj->{$var} instanceOf QueryField):
+                    if ($obj->{$var} instanceOf Join):
+                        $join .= $obj->{$var}->getJoinClause();
+                    endif;
+                    if ($where != ' WHERE '):
+                        $and = true;
+                    endif;
+                    $where .= $obj->{$var}->getWhereClause($and);
+                endif;
+            endforeach;
+            if ($where === ' WHERE ') $where = '';
+            return $join . $where;
+        else:
+            return '';
+        endif;
     }
 
 
     private static function getOrderBy($obj)
     {
-        if (Util::isValid($obj->query_parameters['order']))
-            return ' ORDER BY ' . $obj->query_parameters['order'];
+        if (Util::isValid($obj->query_settings['order']))
+            return ' ORDER BY ' . $obj->query_settingss['order'];
         else
             return '';
-
     }
 
 
     private static function getLimit($obj)
     {
-        if (Util::isValid($obj->query_parameters['limit']))
-            return ' LIMIT ' . $obj->query_parameters['limit'];
+        if (Util::isValid($obj->query_settings['limit']))
+            return ' LIMIT ' . $obj->query_settings['limit'];
         else
             return '';
     }
@@ -87,8 +84,8 @@ class Query
 
     private static function getOffset($obj)
     {
-        if (Util::isValid($obj->query_parameters['offset']))
-            return ' OFFSET ' . $obj->query_parameters['offset'];
+        if (Util::isValid($obj->query_settings['offset']))
+            return ' OFFSET ' . $obj->query_settings['offset'];
         else
             return '';
     }
@@ -96,7 +93,7 @@ class Query
 
     private static function getQuery($obj)
     {
-        $query = self::getSelect($obj) . self::getConditions($obj) . self::getOrderBy($obj) . self::getLimit($obj) . self::getOffset($obj);
+        $query = self::getSelect($obj) . self::getClauses($obj) . self::getOrderBy($obj) . self::getLimit($obj) . self::getOffset($obj);
         echo $query;
         return $query;
     }
@@ -105,10 +102,8 @@ class Query
     private static function executeQuery($obj)
     {
         $connection = new Connection();
-        $connection->open();
-        $result = mysql_query(mysql_real_escape_string(self::getQuery($obj)));
-        $connection->close();
-
+        $result = mysql_query(self::getQuery($obj));
+        $connection->__destruct();
         return $result;
     }
 
@@ -118,35 +113,45 @@ class Query
         $list = array();
         $result = self::executeQuery($obj);
 
-        if ($obj->return_idx === ComponentsMap::return_single_field_idx):
+        switch ($obj->return_idx):
 
-            while ($row = mysql_fetch_array($result)):
-                $list = $row[0];
-            endwhile;
+            case ComponentsMap::return_assoc_array_idx:
+                while ($row = mysql_fetch_assoc($result)):
+                    $list[] = $row;
+                endwhile;
+                break;
 
-        elseif ($obj->return_idx === ComponentsMap::return_array_idx):
+            case ComponentsMap::return_num_array_idx:
+                while ($row = mysql_fetch_row($result)):
+                    $list[] = $row;
+                endwhile;
+                break;
 
-            while ($row = mysql_fetch_assoc($result)):
+            case ComponentsMap::return_both_array_idx:
+                while ($row = mysql_fetch_array($result)):
+                    $list[] = $row;
+                endwhile;
+                break;
 
-                $prepared_row = array();
+            case ComponentsMap::return_dynamic_obj_idx:
+                while ($row = mysql_fetch_object($result, 'Config\Components\Dynamic')):
+                    $list[] = $row;
+                endwhile;
+                break;
 
-                foreach ($row as $field)
-                    $prepared_row[$field] = $row[$field];
+            case ComponentsMap::return_single_field_idx:
+                while ($row = mysql_fetch_row($result)):
+                    $list = $row[0];
+                endwhile;
+                break;
 
-                $list[] = $prepared_row;
+            default:
+                while ($row = mysql_fetch_object($result, get_class($obj))):
+                    $list[] = $row;
+                endwhile;
+                break;
 
-            endwhile;
-
-        else:
-
-            $object_class = $obj->return_idx === ComponentsMap::return_dynamic_obj_idx ? 'Config\Components\Dynamic' : get_class($obj);
-
-            while ($row = mysql_fetch_object($result, $object_class)):
-                $list[] = $row;
-            endwhile;
-
-        endif;
-
+        endswitch;
         return $list;
     }
 

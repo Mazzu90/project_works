@@ -2,21 +2,14 @@
 
 namespace Config\Components;
 
-use Config\Core\Entities\Queryable;
 use Config\Core\Entities\Debugger;
-use Config\Core\Query\Pool;
-use Config\Core\Query\Basic;
-use Config\Core\Query\Count;
-use Config\Core\Query\Distinct;
-use Config\Utils\Util;
-use Config\Utils\Data;
+use Config\Core\Entities\Querable;
 use Config\Properties;
-use Config\ComponentsMap;
+use Config\Utils\Util;
 
 
-class Veicolo extends Queryable
-{    
-    
+class Veicolo extends Querable
+{
     private $debug;
 
     //USO INTERNO
@@ -51,70 +44,6 @@ class Veicolo extends Queryable
         $method = ('__construct()');
         $this->debug = new Debugger('VEICOLO');
         $this->debug->constructing();
-
-        //$this->debug->generic("IDX: ".$constructor_idx);
-
-       /* switch ($constructor_idx):
-
-            case ComponentsMap::search_idx :
-
-                parent::__construct();
-                $this->id = new Pool($this->getTable(), 'id');
-                $this->id->value = $this::getIdPoolByOptionals();
-                break;
-
-            /*
-            case ComponentsMap::count_search_idx :
-
-                parent::__construct(ComponentsMap::custom_var_idx);
-
-
-                $alias = 'count_'.$extra_param;
-                $this->{$alias} = new Count($this->table, 'id', $alias);
-                $this->show_fields[] = $alias;
-                break;
-
-            case ComponentsMap::distinct_search_idx:
-
-                parent::__construct(ComponentsMap::custom_var_idx);
-
-                if(is_array($extra_param)):
-
-                    $count = count($extra_param);
-
-                    for($i = 0; $i < $count; $i++):
-
-                        $alias = "field_$i";
-
-                        if($i === 0):
-                            $this->{$alias} = new Distinct($this->table, $extra_param[$i], $alias);
-                        else:
-                            $this->{$alias} = new Basic($this->table, $extra_param[$i], $alias);
-                        endif;
-
-                        $this->show_fields[] = $alias;
-
-                    endfor;
-
-                else:
-
-                    $this->{$extra_param} = new Distinct($this->table, $extra_param);
-                    $this->show_fields[] = $extra_param;
-
-                endif;
-
-                break;
-
-            default:
-
-                $this->debug->tryingToConstruct('Component', $method );
-                parent::__construct();
-
-            break;
-
-        endswitch;*/
-
-        //echo 'var to unset: '.print_r($this->suggested_unset_order);
         $this->debug->constructed();           
     }
 

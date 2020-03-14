@@ -30,7 +30,7 @@ class Properties{
     oppure log a livello diverso di quella classe, settare il livello direttamente dove serve   
     */
         
-    const debug_level = 4;
+    const debug_level = -1;
     
     /*------------------CONST_CLIENTE---------------  */
     

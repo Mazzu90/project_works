@@ -12,9 +12,9 @@ class Query
     private static function getSelectReadyFields($obj)
     {
         $formatted_fields = array();
-        if (isset($obj->show_fields)):
+        if (isset($obj->show_felds)):
             foreach ($obj->show_fields as $prop):
-                    $formatted_fields[] = $obj->{$prop}->getFieldForSelect();
+                    $formatted_fields[] = $obj->{$prop}->getDotNotation();
             endforeach;
         else:
             echo '<br>$showFields not setted';

@@ -40,7 +40,7 @@ class Marchi extends Page{
 
         $configurations = array(
 
-            'make' => array(
+            'make' => array(//non funzionante
                 'options' => Veicolo::getDistinct(array('id_marca', 'make'), ' make ASC'),
             ),
 

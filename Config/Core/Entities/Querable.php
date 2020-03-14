@@ -11,6 +11,10 @@ use Config\Core\Query\QueryField;
 use Config\ComponentsMap;
 
 
+/**
+ * Class Querable
+ * @package Config\Core\Entities
+ */
 abstract class Querable{
 
     private static $class;
@@ -20,7 +24,7 @@ abstract class Querable{
         $full_path_class = get_called_class();
         $obj = new $full_path_class;
         $obj->class = end(explode('\\', $full_path_class));
-        self::$class = $obj->class;
+        self::$class = $obj->class; 
         $obj->table = self::getTable();
         $obj->idx = constant('Config\ComponentsMap::'.strtolower($obj->class).'_idx');
 
@@ -40,6 +44,7 @@ abstract class Querable{
 
         return Query::getList($obj);
     }
+
 
     public static function getListBy($field, $value)
     {
@@ -131,6 +136,9 @@ abstract class Querable{
     }
 
 
+    /**
+     * @return strin With the name of the class, it must be implemented in the Components::Map $components array
+     */
     protected static function getTable()
     {
         if(isset(ComponentsMap::$components[self::$class]['table']))
